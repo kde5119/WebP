@@ -1,0 +1,48 @@
+<!-- 본문에 있는 그림 1-14의 test3.html을 자세히 들여다보고 <span>Love MeTender</span>에 의해 출력된 텍스트 위에 마우스를 올리면 엘비스 프레슬리의 사진 대신 자신의 사진이 출력되도록 수정하라. 사진 이미지는 test3.html 파일이 있는 파일에 두면 된다.
+1. 사진을 변경하고, <h3> 대신 <span>Love MeTender</span>에 function추가
+-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>웹 페이지의 구성 요소</title>
+    <style>
+      body {
+        background-color: linen;
+        color: green;
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      h3 {
+        text-align: center;
+        color: darkred;
+      }
+      hr {
+        height: 5px;
+        border: solid grey;
+        background-color: grey;
+      }
+      span {
+        color: blue;
+        font-size: 20px;
+      }
+    </style>
+    <script>
+      function show() {
+        document.getElementById("fig").src = "software.png";
+      }
+      function hide() {
+        document.getElementById("fig").src = "";
+      }
+    </script>
+  </head>
+  <body>
+    <h3>Elvis Presley</h3>
+    <hr />
+    <div><img id="fig" src="" /></div>
+    He was an American singer and actor. In November 1956, he made his film
+    debut in
+    <span onmouseover="show()" onmouseout="hide()">Love Me Tender</span>. He is
+    often referred to as "<span> the King of Rock and Roll </span>".
+  </body>
+</html>
