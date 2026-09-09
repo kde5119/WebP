@@ -10,6 +10,6 @@
 
 ### 기타
 
-- [강의 자료](https://ftpserver.ksecole.kr)
+- [강의 자료](https://ftpserver.aixlab.kr/)
 
 - (짧은글 영타 300타 이상)
