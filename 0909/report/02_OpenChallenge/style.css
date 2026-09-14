@@ -1,0 +1,7 @@
+.fig {
+  display: flex;
+  gap: 10px;
+}
+.fig img {
+  height: 100px;
+}
