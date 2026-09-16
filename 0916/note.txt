@@ -1,3 +1,20 @@
 netlify
 
 콘텐츠 . 텍스트 이미지 오디오 비디오
+
+SEO (Search Engine Optimization)
+
+DOM 트리
+
+ASP, JSP, PHP
+
+javascript.info 
+
+정규표현식
+
+emmet 치트 시트
+
+html가독성
+
+서버에는 파일을 제출 - form의 action 등
+
