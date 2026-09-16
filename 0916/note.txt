@@ -18,3 +18,8 @@ html가독성
 
 서버에는 파일을 제출 - form의 action 등
 
+웹 접근성
+
+rgb와 a(투명도)
+
+vscode source control 발표
