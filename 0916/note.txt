@@ -22,4 +22,12 @@ html가독성
 
 rgb와 a(투명도)
 
-vscode source control 발표
+github 꾸미기
+
+발표주제
+git
+source tree
+github협업
+그리고
+vscode source control -> 발표
+- 
