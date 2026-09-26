@@ -1,8 +1,0 @@
-needs contents tag css,js
-
-kotlin swift
-
-웹 앱, 네이티브, 하이브리드 앱
-
-* : all
-? : one 
