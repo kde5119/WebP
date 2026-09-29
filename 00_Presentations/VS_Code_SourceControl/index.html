@@ -447,6 +447,47 @@
           grid-template-columns: 1fr;
         }
       }
+      /* ---- 사진 크기 자동 맞춤 + 클릭 확대 ---- */
+      .photo-square,
+      .photo-wide,
+      .photo-grid-2 .photo-square {
+        width: fit-content !important;
+        height: auto !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .photo-square img,
+      .photo-wide img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 520px;
+        min-width: min(100%, 360px);
+        cursor: zoom-in;
+      }
+      .photo-grid-2 {
+        align-items: center;
+      }
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: rgba(0, 0, 0, 0.88);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-out;
+      }
+      .lightbox.on {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 94vw;
+        max-height: 94vh;
+      }
     </style>
   </head>
   <body>
@@ -539,7 +580,7 @@
               <p class="small muted">PC에 Git이 설치되어 있어야 합니다.</p>
             </div>
             <div class="photo-square">
-              <img src="Attached_file/깃 다운로드.png" alt="Git 설치 화면" />
+              <img src="Attached_file/download.png" alt="Git 설치 화면" />
             </div>
           </div>
           <div class="card">
@@ -559,10 +600,7 @@
               </p>
             </div>
             <div class="photo-square">
-              <img
-                src="Attached_file/사용자 설정.png"
-                alt="Git 사용자 설정 화면"
-              />
+              <img src="Attached_file/setting.png" alt="Git 사용자 설정 화면" />
             </div>
           </div>
         </div>
@@ -620,7 +658,7 @@
           <h2>VS Code에서 Repository 시작하기</h2>
           <div class="photo-square">
             <img
-              src="Attached_file/openfolder버튼.png"
+              src="Attached_file/openfolder.png"
               alt="VS Code Clone 및 Open Folder 화면"
             />
           </div>
@@ -657,7 +695,7 @@
                 Commit 영역
               </div>
               <div class="photo-square">
-                <img src="Attached_file/커밋 영역.png" alt="Commit 영역" />
+                <img src="Attached_file/commit.png" alt="Commit 영역" />
               </div>
             </div>
             <div>
@@ -667,7 +705,7 @@
                 파일 변경 표시
               </div>
               <div class="photo-square">
-                <img src="Attached_file/change영역.png" alt="파일 변경 표시" />
+                <img src="Attached_file/change.png" alt="파일 변경 표시" />
               </div>
             </div>
           </div>
@@ -729,7 +767,7 @@
           <div class="card">
             <span class="badge a">A</span
             ><strong style="margin-top: 15px">Added</strong>
-            <p>Git에 추가된 파일입니다.</p>
+            <p>Stage된 새 파일입니다.</p>
           </div>
           <div class="card">
             <span class="badge d">D</span
@@ -852,7 +890,7 @@
               "
             >
               <img
-                src="Attached_file/타임라인.png"
+                src="Attached_file/timeline.png"
                 alt="VS Code Timeline 화면"
               />
             </div>
@@ -964,7 +1002,7 @@
         >
           <h2>실습 ① 화면</h2>
           <div class="photo-wide">
-            <img src="Attached_file/실습1.png" alt="실습 ① 화면" />
+            <img src="Attached_file/1.png" alt="실습 ① 화면" />
           </div>
           <div class="photo-caption">
             파일을 수정한 뒤 Source Control에서
@@ -1023,7 +1061,7 @@
         >
           <h2>실습 ② 화면</h2>
           <div class="photo-wide">
-            <img src="Attached_file/실습2.png" alt="실습 ② 화면" />
+            <img src="Attached_file/2.png" alt="실습 ② 화면" />
           </div>
           <div class="photo-caption">
             변경 파일을 Stage하고 Commit 메시지를 작성한 뒤
@@ -1083,7 +1121,7 @@
         >
           <h2>실습 ③ 화면</h2>
           <div class="photo-wide">
-            <img src="Attached_file/실습3.png" alt="실습 ③ 화면" />
+            <img src="Attached_file/3.png" alt="실습 ③ 화면" />
           </div>
           <div class="photo-caption">
             <span class="accent">Push 또는 Sync</span>를 실행한 뒤 GitHub
@@ -1135,7 +1173,7 @@
         >
           <h2>실습 ④ 화면</h2>
           <div class="photo-wide">
-            <img src="Attached_file/실습4.png" alt="실습 ④ 화면" />
+            <img src="Attached_file/4.png" alt="실습 ④ 화면" />
           </div>
           <div class="photo-caption">
             <span class="accent">Pull</span>을 사용해 GitHub의 변경사항을 로컬에
@@ -1256,7 +1294,31 @@
       <div class="progress"><span id="bar"></span></div>
     </div>
 
+    <div class="lightbox" id="lb"><img id="lbImg" alt="" /></div>
+
     <script>
+      const lb = document.getElementById("lb");
+      const lbImg = document.getElementById("lbImg");
+      document.addEventListener(
+        "click",
+        (e) => {
+          if (lb.classList.contains("on")) {
+            lb.classList.remove("on");
+            e.stopImmediatePropagation();
+            return;
+          }
+          const img = e.target.closest(".photo-square img, .photo-wide img");
+          if (img) {
+            lbImg.src = img.src;
+            lb.classList.add("on");
+            e.stopImmediatePropagation();
+          }
+        },
+        true,
+      );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") lb.classList.remove("on");
+      });
       const slides = [...document.querySelectorAll(".slide")];
       document
         .querySelectorAll(".slide-no")
