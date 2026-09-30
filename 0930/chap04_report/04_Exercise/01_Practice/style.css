@@ -1,0 +1,12 @@
+body {
+  background-color: bisque;
+}
+h3 {
+  color: blue;
+}
+p {
+  color: plum;
+}
+p span {
+  background-color: aqua;
+}

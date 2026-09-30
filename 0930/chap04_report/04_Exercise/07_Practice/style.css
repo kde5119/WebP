@@ -1,0 +1,17 @@
+section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-image {
+  width: 500px;
+  height: 500px;
+  background-image: url("뒷.png");
+  background-size: auto; /* 또는 contain */
+  background-repeat: no-repeat;
+}
+
+.card-image:hover {
+  background-image: url("앞.png");
+}

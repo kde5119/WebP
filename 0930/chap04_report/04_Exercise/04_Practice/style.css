@@ -1,0 +1,20 @@
+body {
+  background-color: mediumaquamarine;
+}
+.headline {
+  color: brown;
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+div.help {
+  color: blue;
+}
+p.help {
+    color: red;
+    font-size: larger;
+}
+#hot {
+    background-color: orangered;
+    
+}

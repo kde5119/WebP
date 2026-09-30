@@ -1,0 +1,7 @@
+img {
+  width: 500px;
+  height: 100%;
+  border: 15px solid black;
+  border-image: url("운명.png") 30 round;
+  padding: 5px;
+}

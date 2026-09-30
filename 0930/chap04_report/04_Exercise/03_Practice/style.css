@@ -1,0 +1,36 @@
+table,
+th,
+td {
+  border: 1px solid;
+}
+th,
+td {
+  width: 4em;
+  height: 30px;
+}
+
+.show-brown {
+  background-color: brown;
+}
+.show-deepskyblue {
+  background-color: deepskyblue;
+}
+.show-blueviolet {
+  background-color: blueviolet;
+}
+.show-gold {
+  background-color: gold;
+}
+.show-darkorange {
+  background-color: darkorange;
+}
+.show-olivedrab {
+  background-color: olivedrab;
+}
+.color-box {
+  width: 100%;
+  height: 100%;
+}
+td:has(.color-box) {
+  padding: 2px;
+}

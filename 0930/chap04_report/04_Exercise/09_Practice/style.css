@@ -1,0 +1,14 @@
+h3 {
+  color: yellow;
+  text-shadow: 2px 2px 3px blue, 1px 1px 2px black;
+}
+
+img {
+  width: 500px;
+  height: 100%;
+  margin: 10px;
+}
+
+img:hover {
+  box-shadow: 0 0 10px 5px rgba(13, 68, 248, 0.458);
+}

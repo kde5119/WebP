@@ -1,0 +1,20 @@
+body {
+  background-color: mediumaquamarine;
+}
+h3 {
+  color: green;
+}
+#center {
+  color: blue;
+  text-align: center;
+}
+#center > strong {
+  background-color: yellow;
+}
+.indent > p::first-letter {
+  color: greenyellow;
+}
+.indent strong {
+    color: red;
+    
+}
