@@ -1,0 +1,19 @@
+body {
+  background-color: aliceblue;
+  line-height: 1.6;
+}
+h1 {
+  color: brown;
+  text-align: center;
+}
+header hr {
+  border: 1px solid black;
+}
+.survey {
+  background-color: antiquewhite;
+  margin: 1em;
+}
+span {
+  color: blue;
+  text-shadow: 1px 1px 1px skyblue;
+}
