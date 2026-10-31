@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform:rotation</title>
+  </head>
+  <body>
+    <h3>클릭하면 90도 회전합니다.</h3>
+    <hr />
+    <img src="aha.webp" alt="아하" id="aha" />
+    <script>
+      let img = document.getElementById("aha");
+      img.onclick = function () {
+        this.style.transform = "rotate(90deg)";
+      };
+    </script>
+  </body>
+</html>

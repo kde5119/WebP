@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>갬블링 게임</title>
+    <style>
+      div.game {
+        border: 2px solid rgb(255, 173, 255);
+        display: inline-block;
+      }
+      div.game > span {
+        color: rgba(127, 178, 255, 0.687);
+        font-size: 100px;
+        margin: 0px 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>갬블링 게임</h3>
+    <p>
+      각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면
+      승리합니다.
+    </p>
+    <hr />
+    <div class="game"><span>X</span><span>X</span><span>X</span></div>
+    <script>
+      let spans = document.getElementsByTagName("span");
+      let arr = Array(spans.length).fill(-1);
+      let alerttxt = document.createElement("p");
+
+      for (let i = 0; i < spans.length; i++) {
+        spans[i].onclick = function () {
+          if (arr[i] != -1) return;
+
+          let rand = Math.floor(Math.random() * 3);
+
+          spans[i].innerHTML = rand;
+          arr[i] = rand;
+
+          let count = 0;
+
+          for (let j = 0; j < arr.length; j++) {
+            if (arr[j] != -1) count++;
+          }
+
+          if (count == spans.length) {
+            if (arr[0] == arr[1] && arr[1] == arr[2]) {
+              alerttxt.innerHTML = "Success(click here to do again)";
+            } else {
+              alerttxt.innerHTML = "Fail(click here to do again)";
+            }
+
+            spans[0].parentElement.appendChild(alerttxt);
+            alerttxt.onclick = function () {
+              for (let i = 0; i < spans.length; i++) {
+                spans[i].innerHTML = "X";
+                arr[i] = -1;
+              }
+              alerttxt.remove();
+            };
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

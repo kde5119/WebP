@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform:scale</title>
+  </head>
+  <body>
+    <h3>클릭하면 2,3,4배로 옆으로 늘어납니다.</h3>
+    <hr />
+    <img src="aha.webp" alt="아하" width="50%" id="aha" />
+    <script>
+      let img = document.getElementById("aha");
+      let n = 1;
+      img.onclick = function () {
+        n++;
+        if (n == 5) n = 1;
+        this.style.transform = `scale(${n},1)`;
+        
+      };
+    </script>
+  </body>
+</html>
